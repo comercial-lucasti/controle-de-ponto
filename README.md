@@ -7,7 +7,7 @@
 ![Google Apps Script](https://img.shields.io/badge/Google%20Apps%20Script-2b2b2b?style=for-the-badge&logo=google&logoColor=E0B101)
 ![Python](https://img.shields.io/badge/Python-2b2b2b?style=for-the-badge&logo=python&logoColor=E0B101)
 ![Google Colab](https://img.shields.io/badge/Google%20Colab-2b2b2b?style=for-the-badge&logo=googlecolab&logoColor=E0B101)
-![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-E0B101?style=for-the-badge&labelColor=2b2b2b)
+![Licença](https://img.shields.io/badge/Licen%C3%A7a-Todos%20os%20direitos%20reservados-E0B101?style=for-the-badge&labelColor=2b2b2b)
 
 </div>
 
@@ -78,4 +78,4 @@ Registros de ponto são **dados pessoais**. Mantenha a planilha e o Web App rest
 
 ## Licença
 
-[MIT](LICENSE) © 2026 Lucas T.I
+Todos os direitos reservados © 2026 Lucas T.I. O código é público apenas para **visualização** (portfólio); uso, cópia, modificação ou redistribuição exigem autorização prévia e por escrito. Veja o arquivo [LICENSE](LICENSE).
