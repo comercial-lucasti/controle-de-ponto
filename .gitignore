@@ -1,0 +1,10 @@
+.DS_Store
+.env
+*.log
+.clasp.json
+.clasprc.json
+*.pdf
+*.xlsx
+*.ods
+exemplos/*
+!exemplos/ponto_exemplo.csv

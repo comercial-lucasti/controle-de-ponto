@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro de ponto</title>
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 24px; color: #2b2b2b; }
+  .card { max-width: 420px; margin: 0 auto; background: #fff; border: 1px solid #e2e2e2; border-radius: 12px; padding: 24px; }
+  h1 { font-size: 1.25rem; margin: 0 0 16px; }
+  input { width: 100%; box-sizing: border-box; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  button { padding: 14px 8px; border: 0; border-radius: 8px; background: #2b2b2b; color: #fff; font-size: .95rem; font-weight: 600; cursor: pointer; }
+  button:disabled { background: #aaa; cursor: not-allowed; }
+  #msg { margin-top: 16px; min-height: 1.4em; font-size: .95rem; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Registro de ponto</h1>
+  <input id="nome" placeholder="Seu nome" maxlength="80" autocomplete="name">
+  <div class="grid">
+    <button data-acao="Entrada">Entrada</button>
+    <button data-acao="Saída para almoço">Saída p/ almoço</button>
+    <button data-acao="Retorno do almoço">Retorno do almoço</button>
+    <button data-acao="Saída">Saída</button>
+  </div>
+  <div id="msg" role="status"></div>
+</div>
+<script>
+  // Cole aqui a URL do seu Web App (termina em /exec). Não publique a URL real em repositórios públicos.
+  var URL_WEBAPP = 'COLE_AQUI_A_URL_DO_WEB_APP';
+
+  var msg = document.getElementById('msg');
+  document.querySelectorAll('button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var nome = document.getElementById('nome').value.trim();
+      if (!nome) { msg.textContent = 'Informe seu nome.'; return; }
+      if (URL_WEBAPP.indexOf('COLE_AQUI') === 0) { msg.textContent = 'Configure a URL do Web App no código.'; return; }
+      document.querySelectorAll('button').forEach(function (x) { x.disabled = true; });
+      var url = URL_WEBAPP + '?nome=' + encodeURIComponent(nome) + '&acao=' + encodeURIComponent(b.dataset.acao);
+      // no-cors: a resposta não pode ser lida pelo navegador; o comprovante chega por e-mail
+      fetch(url, { mode: 'no-cors' }).then(function () {
+        msg.textContent = b.dataset.acao + ': solicitação enviada. Confira o comprovante por e-mail.';
+      }).catch(function () {
+        msg.textContent = 'Não foi possível enviar. Tente novamente.';
+      }).finally(function () {
+        setTimeout(function () { document.querySelectorAll('button').forEach(function (x) { x.disabled = false; }); }, 3000);
+      });
+    });
+  });
+</script>
+</body>
+</html>
